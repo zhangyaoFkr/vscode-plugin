@@ -11,7 +11,8 @@
 	],
 	"activationEvents": [
 		"onCommand:extension.helloWorld",
-		"onCommand:extension.hiYou"
+		"onCommand:extension.hiYou",
+		"onCommand:extension.createFunctionalComponent"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
@@ -21,7 +22,18 @@
 		}, {
 			"command": "extension.hiYou",
 			"title": "Hi You"
-		}]
+		},{
+			"command": "extension.createFunctionalComponent",
+			"title": "Create Functional Component"
+		}],
+		"menus": {
+			"explorer/context": [
+				{
+					"command": "extension.createFunctionalComponent",
+                    "group": "1_modification"
+				}
+			]
+		}
 	},
 	"scripts": {
 		"vscode:prepublish": "yarn run compile",
