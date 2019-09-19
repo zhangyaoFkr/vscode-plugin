@@ -1,6 +1,7 @@
 // The module 'vscode' contains the VS Code extensibility API
 // Import the module and reference it with the alias vscode in your code below
 import * as vscode from 'vscode';
+import addFile from './func/addFile';
 
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
@@ -46,14 +47,11 @@ export function activate(context: vscode.ExtensionContext) {
 			prompt: "Please input component name",
 			placeholder: "Component name"
 		};
-		vscode.window.showInputBox(options).then(value => {
-			if (!value) {
+		vscode.window.showInputBox(options).then(componentName => {
+			if (!componentName) {
 				return;
 			}
-			const componentName = value;
-			// 路径分隔符在 window 和 linux 内核是不一样的
-			const fullPath = `${folderPath}/${componentName}`;
-			// TODO: 创建一个文件并写入模板
+			addFile(folderPath, componentName);
 		});
 
 	});
