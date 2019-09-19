@@ -33,7 +33,17 @@
                     "group": "1_modification"
 				}
 			]
-		}
+		},
+		"snippets": [
+			{
+				"language": "html",
+				"path": "./snippets/html.json"
+			},
+			{
+				"language": "javascript",
+				"path": "./snippets/js.json"
+			}
+		]
 	},
 	"scripts": {
 		"vscode:prepublish": "yarn run compile",
